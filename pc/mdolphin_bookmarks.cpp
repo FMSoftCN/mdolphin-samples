@@ -352,7 +352,8 @@ static CTRLDATA addMarkInitProgress [] =
 };
 
 
-static int addMarkProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int addMarkProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)	// gengyue
+static LRESULT addMarkProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     RECT rc;
     switch (message) {
@@ -538,7 +539,8 @@ static CTRLDATA manageMarkInitProgress [] =
     }
 };
 
-static int manageMarkProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int manageMarkProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT manageMarkProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     char buf[200];
     RECT rc;

@@ -60,10 +60,12 @@ static void add_default_title(HWND hDlg, const char *location)
     if (data && !data->title) {
         data->title = strdup("mDolphin");
 
-        int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, hDlg, 0);
+        //int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, hDlg, 0);		// gengyue
+        LRESULT index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, (WPARAM)hDlg, 0);
         SendMessage(propsheet_hwnd, PSM_SETTITLE, index, (LPARAM)data->location);
-        HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-        if (active != hDlg)
+        //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);		// gengyue
+        LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+        if (active != (LRESULT)hDlg)
             return;
         SetWindowText(GetParent(propsheet_hwnd), "mDolphin");
     }
@@ -207,15 +209,17 @@ HWND my_create_new_window(const char* url, DWORD styles, int x, int y, int width
     } else {
         PageInfo.controls = CtrlSysInfo;
         PageInfo.caption = "";
-        int index = SendMessage (propsheet_hwnd, PSM_ADDPAGE, (WPARAM)&PageInfo, (LPARAM)PageProc);
-        HWND hPage = SendMessage(propsheet_hwnd, PSM_GETPAGE, index, 0);
+        //int index = SendMessage (propsheet_hwnd, PSM_ADDPAGE, (WPARAM)&PageInfo, (LPARAM)PageProc);	// gengyue
+        LRESULT index = SendMessage (propsheet_hwnd, PSM_ADDPAGE, (WPARAM)&PageInfo, (LPARAM)PageProc);
+        // HWND hPage = SendMessage(propsheet_hwnd, PSM_GETPAGE, index, 0);		// gengyue
+        LRESULT hPage = SendMessage(propsheet_hwnd, PSM_GETPAGE, index, 0);
         int count = SendMessage(propsheet_hwnd, PSM_GETPAGECOUNT, 0, 0);
         change_file_menu_status(count, TRUE);
 
         index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, hPage, 0);
         SendMessage(propsheet_hwnd, PSM_SETTITLE, index, (LPARAM)"Blank");
 
-        return GetDlgItem (hPage, IDC_MDOLPHIN);
+        return GetDlgItem ((HWND)hPage, IDC_MDOLPHIN);
     }
 }
 
@@ -227,7 +231,8 @@ void my_close_tab_window(HWND hWnd)
     if (!hPage)
         return;
 
-    int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, hPage, 0);
+    //int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, hPage, 0);		// gengyue
+    LRESULT index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, (WPARAM)hPage, 0);
     if (index == PS_ERR) {
         DestroyMainWindowIndirect(hPage);
         return;
@@ -251,11 +256,12 @@ void my_close_tab_window(HWND hWnd)
 
 HWND get_current_mdolphin_hwnd(void)
 {
-    HWND hPage = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (hPage == HWND_INVALID)
+    //HWND hPage = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);	// gengyue
+    LRESULT hPage = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    if ((HWND)hPage == HWND_INVALID)
         return 0;
     else
-        return GetDlgItem (hPage, IDC_MDOLPHIN);
+        return GetDlgItem ((HWND)hPage, IDC_MDOLPHIN);
 }
 
 void view_page_in_source_mode(HWND hwnd)

@@ -15,7 +15,8 @@
 #define IDC_INPUT	1000
 static char *inputboxbuf;
 static int inputboxbuflen;
-static int InputBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int InputBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT InputBoxProc(HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     if ( message == MSG_COMMAND ) {
         if ( wParam == IDOK ) {

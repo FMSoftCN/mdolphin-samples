@@ -193,7 +193,8 @@ static void createWritingDirectionSubMenu(HMENU menu, const POPUP_MENU_DATA *dat
 
 BOOL my_create_popup_menu_callback(HWND hWnd, const POPUP_MENU_DATA *data)
 {
-    int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, GetParent(hWnd), 0);
+    //int index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, GetParent(hWnd), 0);	// gengyue
+    LRESULT index = SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, (WPARAM)GetParent(hWnd), 0);
     if (index == PS_ERR) 
         return FALSE;
 

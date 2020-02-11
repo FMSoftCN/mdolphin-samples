@@ -26,7 +26,8 @@ static int win_height = 160;
 const char * home_url = "http://www.google.com";
 
 
-void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)
+//void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)	// gengyue
+void location_entry_open_url(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     int length;
     char* url_string = NULL;
@@ -75,7 +76,8 @@ static void my_message_callback (HWND parent, const char * text, const char * ca
 	    MessageBox (parent, text, caption, MB_OK);
 }
 
-int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+//int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+LRESULT MDolphinProc (HWND hWnd, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 /*	if(hWnd == mdolphin_hwnd)
 		    fprintf(stderr," get message %d, Wparam %d ,Lparam %d \n",message,wParam,lParam);	

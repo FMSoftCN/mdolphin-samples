@@ -93,7 +93,8 @@ static CTRLDATA CtrlInitProgress [] =
     }
 };
 
-static int AuthBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int AuthBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT AuthBoxProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 
     RECT rc;

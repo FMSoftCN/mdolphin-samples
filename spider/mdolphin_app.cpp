@@ -54,7 +54,8 @@ static void create_mdolphin_window(HWND hParent)
             0, 0, win_width-5,win_height-5, hParent, 0);
 }
 
-int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+//int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)	// gengyue
+LRESULT MDolphinProc (HWND hWnd, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{

@@ -60,7 +60,8 @@ static void default_language_current_position(HWND hDlg)
     }
 }
 
-static void language_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void language_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)	// gengyue
+static void language_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -115,7 +116,8 @@ static void default_encoding_current_position(HWND hDlg)
     }
 }
 
-static void encoding_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void encoding_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)	// gengyue
+static void encoding_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -140,7 +142,8 @@ static void std_font_current_position(HWND hDlg)
     }
 }
 
-static void std_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void std_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)			// gengyue
+static void std_font_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -166,7 +169,8 @@ static void serif_font_current_position(HWND hDlg)
     }
 }
 
-static void serif_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void serif_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)		// gengyue
+static void serif_font_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -191,7 +195,8 @@ static void fixed_font_current_position(HWND hDlg)
     }
 }
 
-static void fixed_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void fixed_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)	// gengyue
+static void fixed_font_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -216,7 +221,8 @@ static void sans_serif_font_current_position(HWND hDlg)
     }
 }
 
-static void sans_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void sans_font_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)	// gengyue
+static void sans_font_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -253,7 +259,8 @@ static void medium_fontsize_current_position(HWND hDlg)
     }
 }
 
-static void font_size_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void font_size_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)		// gengyue
+static void font_size_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -289,7 +296,8 @@ static void medium_fixed_fontsize_current_position(HWND hDlg)
     }
 }
 
-static void fixed_size_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
+//static void fixed_size_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)		// gengyue
+static void fixed_size_notif_proc(HWND hDlg, long int id, int nc, DWORD add_data)
 {
     int num;
     if (nc == CBN_SELCHANGE) {
@@ -298,7 +306,8 @@ static void fixed_size_notif_proc(HWND hDlg, int id, int nc, DWORD add_data)
     }
 }
 
-static void images_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void images_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)	// gengyue
+static void images_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -308,7 +317,8 @@ static void images_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void js_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void js_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+static void js_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -318,7 +328,8 @@ static void js_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void cookies_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void cookies_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+static void cookies_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -328,7 +339,8 @@ static void cookies_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void popupwindow_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void popupwindow_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+static void popupwindow_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -338,7 +350,8 @@ static void popupwindow_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void show_all_at_once_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void show_all_at_once_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+static void show_all_at_once_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -348,7 +361,8 @@ static void show_all_at_once_notif_proc(HWND hwnd, int id, int nc, DWORD add_dat
     }
 }
 
-static void developer_extras_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)
+//static void developer_extras_notif_proc(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+static void developer_extras_notif_proc(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hwnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -710,7 +724,8 @@ static CTRLDATA CtrlInitProgress [] =
     }
 };
 
-static int SettingsProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int SettingsProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)	// gengyue
+static LRESULT SettingsProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 
     RECT rc;
@@ -719,7 +734,7 @@ static int SettingsProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
             init_setup_info (hDlg);
             GetWindowRect ((HWND)(lParam), &rc);
             MoveWindow (hDlg , (rc.right-rc.left)/2-168 , (rc.bottom-rc.top)/2-195, 436 , 450, TRUE);
-            return 1;
+            return (LRESULT)1;
         case MSG_COMMAND:
             switch (wParam) {
 #if ENABLE_PLUGIN   

@@ -103,7 +103,8 @@ HWND mdolphin_hwnd;
 HMENU popup_menu;
 HWND location_hwnd;
 
-int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+//int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+LRESULT MDolphinProc (HWND hWnd, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	int x_pos = LOSWORD (lParam);

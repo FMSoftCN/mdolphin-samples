@@ -171,7 +171,8 @@ static void my_mark_all_matches_for_text(HWND hWnd)
     mdolphin_mark_all_matches_for_text(hWnd, find_string, caseFlag, highlight, 0);
 }
 
-static void case_sensitive_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
+//static void case_sensitive_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)		// gengyue
+static void case_sensitive_notif_proc(HWND hWnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hWnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -184,7 +185,8 @@ static void case_sensitive_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void wrap_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
+//static void wrap_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)		// gengyue
+static void wrap_notif_proc(HWND hWnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hWnd, BM_GETCHECK, 0, 0) == BST_CHECKED )
@@ -194,7 +196,8 @@ static void wrap_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void forward_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
+//static void forward_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)		// gengyue
+static void forward_notif_proc(HWND hWnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (id == IDC_FIND_UP)
@@ -220,7 +223,8 @@ static void get_search_string(HWND hWnd)
     find_string[len]='\0';
 }
 
-static void text_string_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
+//static void text_string_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)		// gengyue
+static void text_string_notif_proc(HWND hWnd, long int id, int nc, DWORD add_data)
 {
     if (nc == EN_CHANGE) {
         get_search_string(hWnd);
@@ -230,7 +234,8 @@ static void text_string_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
     }
 }
 
-static void mark_all_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
+// static void mark_all_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)		// gengyue
+static void mark_all_notif_proc(HWND hWnd, long int id, int nc, DWORD add_data)
 {
     if (nc == BN_CLICKED) {
         if (SendMessage(hWnd, BM_GETCHECK, 0, 0) == BST_CHECKED ) 
@@ -242,7 +247,8 @@ static void mark_all_notif_proc(HWND hWnd, int id, int nc, DWORD add_data)
     }
 }
 
-static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT InitDialogBoxProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     switch (message) {
         case MSG_INITDIALOG:

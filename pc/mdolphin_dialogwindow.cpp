@@ -34,7 +34,8 @@ static CTRLDATA CtrlInitProgress [] =
     },
 };
 
-static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)	// gengyue
+static LRESULT InitDialogBoxProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     switch (message) {
         case MSG_INITDIALOG:

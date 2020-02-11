@@ -122,7 +122,7 @@ static BOOL saveDownloadFile(const void* data, size_t datasize,
 
     {
         struct stat filestat;
-        int status;    
+        int status; 
         status = stat(np->filename, &filestat); 
         if (S_ISDIR(filestat.st_mode)) 
             return FALSE;

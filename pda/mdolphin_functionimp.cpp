@@ -140,7 +140,8 @@ static CTRLDATA CtrlInitProgress [] =
     },
 };
 
-static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int InitDialogBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)	// gengyue
+static LRESULT InitDialogBoxProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     switch (message) {
         case MSG_INITDIALOG:
@@ -206,7 +207,8 @@ void view_page_in_source_mode(HWND hwnd)
     }
 }
 
-void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)
+//void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)		// gengyue
+void location_entry_open_url(HWND hwnd, long int id, int nc, DWORD add_data)
 {
     int length;
     char* url_string = NULL;
@@ -1044,7 +1046,8 @@ static BOOL set_ime_window(BOOL show)
 
 static char *inputboxbuf;
 static int inputboxbuflen;
-static int InputBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int InputBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT InputBoxProc(HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     if ( message == MSG_COMMAND ) {
         if ( wParam == IDOK ) {

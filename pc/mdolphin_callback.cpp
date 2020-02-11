@@ -49,8 +49,10 @@ static void set_location_text (HWND hWnd, const char * text)
     url_text[len] = '\0';
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_LOCATION, (LPARAM)text);
 
-    HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (active != GetParent(hWnd))
+    //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);	// gengyue
+    LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    //if (active != GetParent(hWnd))	// gengyue
+    if (active != (LRESULT)GetParent(hWnd))
         return;
 
     if (text)
@@ -76,7 +78,8 @@ static void set_title_text(HWND hWnd, const char * text)
            text=strTmp;
     }
 
-    int index =SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, GetParent(hWnd), 0);
+    //int index =SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, GetParent(hWnd), 0);		// gengyue
+    LRESULT index =SendMessage(propsheet_hwnd, PSM_GETPAGEINDEX, (WPARAM)GetParent(hWnd), 0);
     SendMessage(propsheet_hwnd, PSM_SETTITLE, index, (LPARAM)text);
 
     memset(title_text, 0 , sizeof(title_text));
@@ -84,8 +87,10 @@ static void set_title_text(HWND hWnd, const char * text)
     strncat (title_text, text, 244);
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_TITLE, (LPARAM)title_text);
 
-    HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (active != GetParent(hWnd))
+    //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);		// gengyue
+    LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    // if (active != GetParent(hWnd))				// gengyue
+    if (active != (LRESULT)GetParent(hWnd))
         return;
 
     SetWindowText(GetParent(propsheet_hwnd), title_text);
@@ -95,8 +100,10 @@ static void set_status_text (HWND hWnd, const char * text)
 {
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_STATUS, (LPARAM)text);
 
-    HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (active != GetParent(hWnd))
+    //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);		// gengyue
+    LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    // if (active != GetParent(hWnd))	// gengyue
+    if (active != (LRESULT)GetParent(hWnd))
         return;
     if (text)
         SetWindowText (status_hwnd, text);
@@ -129,8 +136,10 @@ static void set_loading_status (HWND hWnd, BOOL load, unsigned int progress)
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_LOAD, (LPARAM)load);
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_PROGRESS, (LPARAM)progress);
 
-    HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (active != GetParent(hWnd))
+    //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);	// gengyue
+    LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    //if (active != GetParent(hWnd))		// gengyue
+    if (active != (LRESULT)GetParent(hWnd))
         return;
     change_loading_menu_status(load, progress);
 }
@@ -140,8 +149,10 @@ static void set_histroy_status (HWND hWnd, unsigned int bcount, unsigned int fco
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_BACK, (LPARAM)bcount);
     SendMessage(GetParent(hWnd), MSG_COMMAND, USER_PMS_FORWARD, (LPARAM)fcount);
 
-    HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
-    if (active != GetParent(hWnd))
+    //HWND active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);		gengyue
+    LRESULT active = SendMessage(propsheet_hwnd, PSM_GETACTIVEPAGE, 0, 0);
+    //if (active != GetParent(hWnd))	// gengyue
+    if (active != (LRESULT)GetParent(hWnd))
         return;
 
     change_history_menu_status(bcount, fcount);

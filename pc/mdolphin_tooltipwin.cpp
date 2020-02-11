@@ -45,7 +45,8 @@ void mdolphin_hideToolTip(HWND hwnd)
         ShowWindow(hwnd, SW_HIDE);
 }
 
-static int mdolphin_ToolTipWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+//static int mdolphin_ToolTipWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT mdolphin_ToolTipWinProc (HWND hWnd, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     switch (message) {
         case MSG_CREATE:

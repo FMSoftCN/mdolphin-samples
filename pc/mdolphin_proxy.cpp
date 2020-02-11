@@ -310,7 +310,8 @@ static void setProxyCtrlsEnable(HWND hDlg, BOOL enable)
     UpdateWindow(hDlg, TRUE);
 }
 
-static int ProxyBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int ProxyBoxProc(HWND hDlg, int message, WPARAM wParam, LPARAM lParam)		// gengyue
+static LRESULT ProxyBoxProc(HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     RECT rc;
     PROXY_INFO proxys;

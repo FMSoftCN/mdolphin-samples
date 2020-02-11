@@ -66,7 +66,8 @@ static void saveParfree( struct savePar *info)
     }
 }
 
-static int SaveBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)
+//static int SaveBoxProc (HWND hDlg, int message, WPARAM wParam, LPARAM lParam)			// gengyue
+static LRESULT SaveBoxProc (HWND hDlg, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
 
     RECT rc;

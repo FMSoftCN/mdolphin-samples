@@ -537,7 +537,8 @@ static void create_progress_window(HWND hwnd_parent, int width, int height)
     SendMessage (progress_hwnd, PBM_SETRANGE, 0, 1000);
 }
 
-void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)
+//void location_entry_open_url(HWND hwnd, int id, int nc, DWORD add_data)
+void location_entry_open_url(HWND hwnd, long int id, int nc, DWORD add_data)	// gengyue
 {
     int length;
     char* url_string = NULL;
@@ -585,7 +586,8 @@ static void create_location_window(HWND hParent, int width, int height)
     SetNotificationCallback (location_hwnd, location_entry_open_url);
 }
 
-static void toolbar_notif_proc (HWND hwnd, int id, int nc, DWORD add_data)
+//static void toolbar_notif_proc (HWND hwnd, int id, int nc, DWORD add_data)
+static void toolbar_notif_proc (HWND hwnd, long int id, int nc, DWORD add_data)	// gengyue
 {
     HWND parent = GetParent (hwnd);
 
@@ -650,14 +652,15 @@ static void create_toolbar_window(HWND hParent, int width, int height)
 
 static WNDPROC old_propsheet_proc;
 
-static int propsheet_proc (HWND hwnd, int message, WPARAM wParam, LPARAM lParam)
+//static int propsheet_proc (HWND hwnd, int message, WPARAM wParam, LPARAM lParam)
+static LRESULT propsheet_proc (HWND hwnd, unsigned int message, WPARAM wParam, LPARAM lParam)			// gengyue
 {
    if(message==MSG_LBUTTONDBLCLK && SendMessage(propsheet_hwnd, PSM_GETPAGECOUNT, 0, 0)>1)
    {
       HWND mdolphin_cHwnd = get_current_mdolphin_hwnd();
 
       RECT rect,par_rect;
-      int x_pos = LOSWORD (lParam);
+//      int x_pos = LOSWORD (lParam);	// gengyue
       int y_pos = HISWORD (lParam);
 
       GetWindowRect(mdolphin_cHwnd,&rect);
@@ -694,7 +697,8 @@ void set_preference_info(HWND mdolpin_current_hwnd)
 	}
 }
 
-int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+//int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
+LRESULT MDolphinProc (HWND hWnd, unsigned int message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
@@ -951,7 +955,7 @@ int MDolphinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
                                  char buffer[size+1+strlen("SendClipBoard")];
                                  memset(buffer, 0, sizeof(buffer));
                                  strcpy(buffer,"SendClipBoard");
-                                 size_t get_size = GetClipBoardData (CBNAME_TEXT, buffer+strlen("SendClipBoard"), size);
+//                                 size_t get_size = GetClipBoardData (CBNAME_TEXT, buffer+strlen("SendClipBoard"), size);		gengyue
 
                                  VFBSetCaption(buffer);
                               }
@@ -1266,7 +1270,8 @@ int MiniGUIMain (int args, const char* argv[])
     CreateInfo.rx = win_width;
     CreateInfo.by = win_height;
 #ifdef MINIGUI_V3
-    CreateInfo.iBkColor = DWORD2PIXEL(HDC_SCREEN, GetWindowElementAttr(HWND_DESKTOP, WE_MAINC_THREED_BODY));
+    //CreateInfo.iBkColor = DWORD2PIXEL(HDC_SCREEN, GetWindowElementAttr(HWND_DESKTOP, WE_MAINC_THREED_BODY));	gengyue
+    CreateInfo.iBkColor = DWORD2Pixel(HDC_SCREEN, GetWindowElementAttr(HWND_DESKTOP, WE_MAINC_THREED_BODY));
 #else
     CreateInfo.iBkColor = GetWindowElementColor (BKC_CONTROL_DEF);
 #endif
